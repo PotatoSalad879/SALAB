@@ -8,8 +8,8 @@ type Category struct {
 	ID       uint      `gorm:"primaryKey" json:"id"`
 	Name     string    `gorm:"size:120;not null" json:"name"`
 	Slug     string    `gorm:"size:120;not null;uniqueIndex" json:"slug"`
-	ParentID uint      `gorm:"not null" json:"parent_id"`
-	Parent   *Category `gorm:"foreignKey:ParentID" json:"parent,omitempty"`
+	ParentID *uint      `gorm:"" json:"parent_id"`
+	Parent   *Category `gorm:"foreignKey:ParentID"`
 
 	Courses []Course `gorm:"foreignKey:CategoryID" json:"courses,omitempty"`
 

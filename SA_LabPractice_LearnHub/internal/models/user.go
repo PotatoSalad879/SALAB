@@ -10,10 +10,10 @@ type User struct {
 	Email    string `gorm:"size:150;not null;uniqueIndex" json:"email"`
 	UserRole string `gorm:"column:user_role;size:20;not null" json:"user_role"`
 
-	Bio          string `gorm:"size:500;not null" json:"bio"`
-	Expertise    string `gorm:"size:150;not null" json:"expertise"`
-	Headline     string `gorm:"size:200;not null" json:"headline"`
-	LearningGoal string `gorm:"size:200;not null" json:"learning_goal"`
+	Bio          *string `gorm:"size:500" json:"bio"`
+	Expertise    *string `gorm:"size:150" json:"expertise"`
+	Headline     *string `gorm:"size:200" json:"headline"`
+	LearningGoal *string `gorm:"size:200" json:"learning_goal"`
 
 	CreatedAt time.Time `gorm:"autoCreateTime" json:"created_at"`
 }

@@ -7,7 +7,7 @@ type Tag struct {
 	ID   uint   `gorm:"primaryKey" json:"id"`
 	Name string `gorm:"size:80;not null;uniqueIndex" json:"name"`
 
-	Courses []Course `gorm:"many2many:tag_courses" json:"courses,omitempty"`
+	Courses []Course `gorm:"many2many:course_tags" json:"courses,omitempty"`
 
 	CreatedAt time.Time `gorm:"autoCreateTime" json:"created_at"`
 }

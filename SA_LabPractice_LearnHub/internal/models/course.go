@@ -10,11 +10,11 @@ type Course struct {
 	Slug  string  `gorm:"size:200;not null;uniqueIndex" json:"slug"`
 	Price float64 `gorm:"type:numeric(10,2);not null" json:"price"`
 
-	CategoryID   uint `gorm:"-" json:"category_id"`
-	InstructorID uint `gorm:"-" json:"instructor_id"`
+	CategoryID   uint `gorm:"" json:"category_id"`
+	InstructorID uint `gorm:"" json:"instructor_id"`
 
-	Category   Category `gorm:"foreignKey:CategoryID" json:"category,omitempty"`
-	Instructor User     `gorm:"foreignKey:InstructorID" json:"instructor,omitempty"`
+	Category   Category `gorm:"foreignKey:CategoryID"`
+	Instructor User     `gorm:"foreignKey:InstructorID"`
 
 	Tags []Tag `gorm:"many2many:course_tags" json:"tags,omitempty"`
 
